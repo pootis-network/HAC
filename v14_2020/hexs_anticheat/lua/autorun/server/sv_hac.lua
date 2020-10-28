@@ -7,7 +7,8 @@ MsgN("\n///////////////////////////////////")
 MsgN("//    === HeX's AntiCheat ===    //")
 MsgN("///////////////////////////////////")
 
-if true then MsgN("[HAC] Read the readme again and see why HAC didn't load.") return end
+-- patched idiot check out 
+--if true then MsgN("[HAC] Read the readme again and see why HAC didn't load.") return end
 
 HAC = {
 	Skiddies = {},
@@ -33,6 +34,8 @@ HAC.hac_boom = CreateConVar("hac_boom", 8, true, false)
 HAC.hac_wait = CreateConVar("hac_wait", 8, true, false)
 HAC.hac_silent = CreateConVar("hac_silent", 0, true, false)
 
+-- lolololollolol hex left his steam API key here - thexkey
+-- should probs let him know.
 HAC.Conf = {
 	APIKey = "61AA6F3A64E401B376A88E3EB1F8B459",
 	Debug = false,
@@ -77,8 +80,11 @@ HAC.Msg = {
 	SE_BadCRC = "Error #H28, Didn't run fast enough! " .. HAC.Contact,
 	SE_CanInit = "Error #H29, Out of cheese. " .. HAC.Contact,
 	--HKS
-	HK_Fake = "Error #H30, GMod folder untidy!. www.steamcommunity.com/sharedfiles/filedetails/?id=249653537",
-	HK_BadRX = "Error #H31, GMod folder untidy!. www.steamcommunity.com/sharedfiles/filedetails/?id=249653537",
+	
+	-- replaced the link with a prompt to just reinstall gmod, since link is dead due to UH being dead. - thexkey
+	HK_Fake = "Error #H30, GMod folder untidy!. Reinstall gmod NOW!",
+	HK_BadRX = "Error #H31, GMod folder untidy!. REINSTALL GMOD NOW!",
+	
 	HK_DSFail = "Error #H32, Time-Memory Tradeoff. " .. HAC.Contact,
 	HK_NoRX = "Error #H33, FUCK THE FUCKING FUCKERS. " .. HAC.Contact,
 	HK_NoDec = "Error #H34, Inteligence low. " .. HAC.Contact,
@@ -140,7 +146,10 @@ HAC.Msg = {
 	CC_NoCmd = "Error #H85, Fresh balls! " .. HAC.Contact,
 	CC_Fail = "Error #H86, PORCELAIN THRONE! " .. HAC.Contact,
 	--Asume the position --All our operators are currently busy --HACBurst
-	HB_Bad = "Error #H87, Clean your GMod foldr! www.steamcommunity.com/sharedfiles/filedetails/?id=249653537",
+	
+	-- replaced dead link - thexkey
+	HB_Bad = "Error #H87, Clean your GMod foldr! REINSTALL GMOD!",
+	--
 	HB_Same = "Error #H88, Network timeout! " .. HAC.Contact,
 	HB_Gone = "Error #H89, Transport stream failure! " .. HAC.Contact,
 	HB_Cont = "Error #H90, Lost the game! " .. HAC.Contact,
@@ -164,6 +173,9 @@ HAC.Msg = {
 	LPT_NoDec = "Error #H104, Connection Error! " .. HAC.Contact,
 	LPT_Timeout = "Error #H105, Silent Knob. " .. HAC.Contact,
 	--PWAuth
+	
+	-- eh i dont think i need password protection? - thexkey
+	-- TODO MAYBE: remove PWAuth
 	PW_SkidName = "Error #H106, Base based base error! " .. HAC.Contact,
 	PW_UniChar = "Error #H107, Your name contains the '%s' character, remove it and try again!",
 	PW_BadName = "Error #H108, OH SNAP!\nChange your name and try again\n\n" .. HAC.Contact,
@@ -267,6 +279,8 @@ HAC.TotalHacks = 0
 --Log only --fixme, convert to gatehooks
 HAC.LogOnly = {"CME_NoCont", "CLDB", "EatThis_NoV=", "Key", "UNK", "SLOG", "IPS", "Datafile", "Rootfile", "KR30=physgun_wheelspeed", "EatThis=", "BumWipe=",}
 
+
+-- possible need of patching out? 
 --Failed
 if HAC.AbortLoading then
 	ErrorNoHalt("\n\nID10-T Error!\n\n")
