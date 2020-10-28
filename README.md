@@ -12,3 +12,5 @@ RyanJGray - Helping with testing & ideas. Best of luck with your own AC
 
 -=[UH]=- General HeX.
 
+<div style="text-align:center"><img src="https://github.com/pootis-network/HAC/blob/main/hac_ancient.png?raw=true" /></div>
+
