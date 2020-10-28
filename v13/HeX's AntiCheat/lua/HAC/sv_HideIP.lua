@@ -1,1 +1,0 @@
-hook.Add("HideIP", "LOL", function(name,idx,userid,net,ipaddr)	return "192.168.0.1:27005"end)
