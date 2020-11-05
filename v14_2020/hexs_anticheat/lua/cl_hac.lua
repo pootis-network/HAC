@@ -252,53 +252,58 @@ for k,v in pairs(_G) do
 	local KType = type(k)
 	local VType = type(v)
 
+if KType == "string" then
+		if VType == "table" then
+			if _G[idx] != nil then
+				for x,y in pairs( _G[idx] ) do
+					Gun[k] = Gun[k] or {}; Gun[k][x] = y
+					local SubX	= tostring(x)
+					local SubY	= tostring(y)
+					local YType = type(y)
+					
+					local Ret = "_G."..idx.."."..SubX
+					
+					if not IsGlass(Ret) then
+						if YType == "function" then
+							Ret = Ret..Format("(FUNCTION) [%s]", FPath(y) )
+							
+						elseif YType == "table" then
+							Ret = Ret.." (TABLE)"
+							
+						else
+							Ret = Ret..Format("=[[%s]] (%s)", SubY, YType:upper() )
+						end
+						
+						if not Lists.White_GSafe[ Ret ] then
+							NotTIS(Dogs, Ret)
+							
+							if not Silent then
+								_G[k][x] = function(k,v,a) Pants(Ret, k,v,a) end
+							end
+						end
+					end
+				end
+			end
+			
+		elseif VType != "table" then
+			Gun[k] = v
+			local Ret = Format("_G.%s (FUNCTION) [%s]", idx, FPath(v) )
+			
+			if VType != "function" then
+				Ret = Format("_G.%s=[[%s]] (%s)", idx,vdx, VType:upper() )
+			end
+			
+			if not IsGlass(Ret) and not Lists.White_GSafe[ Ret ] then
+				NotTIS(Dogs, Ret)
+				
+				if VType == "function" and not Silent then
+					_G[k] = function(k,v,a) Pants(Ret, k,v,a) end
+				end
+			end
+		end
+	end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+end
 
 
 
